@@ -60,7 +60,8 @@ def bootstrap_cask(target_directory):
     cask = os.path.join(target_directory, 'bin', 'cask')
     try:
         check_call([cask, 'upgrade-cask'])
-    except CalledProcessError:
+    except CalledProcessError as e:
+        print e
         raise CaskGoError('Cask could not be bootstrapped. Try again later, '
                           'or report an issue at {0}'.format(ISSUE_TRACKER))
 
