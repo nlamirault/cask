@@ -58,6 +58,7 @@ def fail(s):
 
 def bootstrap_cask(target_directory):
     cask = os.path.join(target_directory, 'bin', 'cask')
+    print("Cask : %s" % cask)
     try:
         check_call([cask, 'upgrade-cask'])
     except CalledProcessError as e:
