@@ -30,7 +30,7 @@ due to the lack of a corresponding function in Emacs.
 
 from __future__ import print_function, unicode_literals
 
-
+import logging
 import sys
 import os
 import locale
@@ -195,6 +195,7 @@ def find_best_emacs():
                                is_executable_file(e) and is_supported_emacs(e))
         return next(suitable_candidates, 'emacs')
     else:
+        print "Emacs executable"
         return 'emacs'
 
 
@@ -251,7 +252,9 @@ def exec_cask(arguments):
     This function replaces the current process.  It does **not** return.
 
     """
+    print("Execute cask command: %s" % arguments)
     emacs = get_cask_emacs()
+    print("Find Emacs: %s" % emacs)
     cli = os.path.join(CASK_DIRECTORY, 'cask-cli.el')
     command = [emacs, '-Q', '--script', cli, '--'] + arguments
     os.execvp(command[0], command)
