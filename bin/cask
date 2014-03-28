@@ -195,7 +195,7 @@ def find_best_emacs():
                                is_executable_file(e) and is_supported_emacs(e))
         return next(suitable_candidates, 'emacs')
     else:
-        print "Emacs executable"
+        print("Emacs executable")
         return 'emacs'
 
 
