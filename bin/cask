@@ -217,6 +217,7 @@ def get_cask_emacs():
     # value of $EMACS.
     emacs = ENVB.get(b'EMACS') if b'INSIDE_EMACS' not in ENVB else None
     emacs = emacs or find_best_emacs()
+    print("Emacs for Cask : %s" % emacs)
     ensure_supported_emacs(emacs)
     return emacs
 
